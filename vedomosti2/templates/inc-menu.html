@@ -1,0 +1,14 @@
+{% load staticfiles %}
+<div class="menu">
+	<img src={% static "img/menu.png" %} width="34px">
+	<ul class="dropdown-menu">
+		<li class="{{menu0}}"><a href="/">Офшоры</a></li>
+		<!-- <li class="{{menu1}}"><a href="/">Справки</a></li>
+		<li class="{{menu1}}"><a href="/">People</a></li>
+		<li class="{{menu1}}"><a href="/">Companies</a></li> -->
+		<li class="{{menu1}}"><a href="/faq/">FAQ</a></li>
+		{% if request.user.is_staff or request.user.is_superuser %}
+			<li class = "menu"><a href="/vedadmin/">Админка</a></li>
+		{% endif %}
+	</ul>
+</div>

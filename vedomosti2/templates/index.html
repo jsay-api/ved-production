@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+
+	{% block title %}
+		<title>Offshores</title>
+	{% endblock %}
+
+	<!-- {% block menu0 %}disabled{% endblock %} -->
+
+	{% block content %}
+		<section class="jumbotron">
+			<div class="container-fluid">
+				<div class="row">
+					<form role="form" method="POST" id = "sch">
+						<div class="col-md-11 srch">
+							{% csrf_token %}
+							<input type="search" name = "q" class="form-control sprite" id="Search" placeholder="Введите название офшора/актива, страну или имя бенефициара" />
+						</div>
+						<!-- value = "{{ request.GET.q }}" -->
+						<div class="col-md-1 no-pad">
+							<input type="submit" value="ИСКАТЬ" class="sr"/>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- <div class="col-md-12 settings"><a href="#" >Параметры поиска <img src={% static "img/settings.png" %} alt="settings"></a></div> -->
+			
+			
+			<div id="ajax-content">
+				<div class="container-fluid">
+					<div class="row">
+						<div class="col-md-12">
+							<ul class="nav nav-tabs">
+								<li class="">
+									<a class="tab0">Офшоры-Бенефициары</a>
+								</li>
+								<li class="">
+									<a class="tab1">Бенефициары-Активы</a>
+								</li>
+								<li class="">
+									<a class="tab2">Офшоры-Активы</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				
+				{% block tabs %}
+				{% endblock %}
+
+			</div>				
+
+		<!-- <div class="pagination">
+		    <span class="step-links">
+		        {% if offshores_list.has_previous %}
+		            <a href="?page={{ offshores_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><img src={% static "img/previous.png" %}></a>
+		        {% endif %}
+
+		        <span class="current">
+		            Page {{ offshores_list.number }} of {{ offshores_list.paginator.num_pages }}
+		        </span>
+
+		        {% if offshores_list.has_next %}
+		            <a href="?page={{ offshores_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><img src={% static "img/next.png" %}></a>
+		        {% endif %}
+		    </span>
+		</div> -->
+		</section>
+		
+	{% endblock %}

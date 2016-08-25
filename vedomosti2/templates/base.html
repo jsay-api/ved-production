@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+{% load staticfiles%}
+<head>
+	{% block title %}
+	{% endblock %}
+	<meta charset="utf-8"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+
+	<!-- Optional theme -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap-theme.min.css" integrity="sha384-fLW2N01lMqjakBkx3l/M9EahuwpSfeNvV63J5ezn3uZzapT0u7EYsXMjQV+0En5r" crossorigin="anonymous">
+
+	<link href='https://fonts.googleapis.com/css?family=Roboto:300,400,700' rel='stylesheet' type='text/css'>
+
+	<link rel="shortcut icon" href={% static "img/favicon.png" %} type="image/png">
+
+	<link href="/static/styles/style.css" rel="stylesheet">
+
+
+</head>
+
+<body>
+	<header class = "container">
+		<div class="row">
+			<span class="col-xs-2 first">
+			{% block menu %}
+				{% include 'inc-menu.html' %}
+			{% endblock %}
+			</span>
+			<span class="col-xs-8">
+			<a href="/" class="logo"><img src={% static "img/logo.png" %}></a>
+			</span>
+			<span class="col-xs-2 last">
+			{% block nav%}
+				{% include 'inc-nav.html' %}
+			{% endblock %}
+			</span>
+	    </div>
+	</header>
+	
+	<div class="wrapper">
+	{% block content%}
+	{% endblock%}
+	</div>
+	
+	<footer class="container">
+	    <div class="row">
+	      <p class="col-sm-4">&copy; 2016 Ведомости</p>
+	      <p class="col-sm-8">Made by &copy;Julia Sayapina 2016</p>
+	    </div>
+  	</footer>
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+  	<!-- Latest compiled and minified JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+	{% block js %} {% endblock %}
+    <script src={% static "js/script.js" %}></script>
+</body>
+</html>

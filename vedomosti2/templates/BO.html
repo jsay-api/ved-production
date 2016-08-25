@@ -1,0 +1,137 @@
+
+{% load staticfiles %}
+
+{% block tabs %}
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-md-12">
+				<ul class="nav nav-tabs">
+					<li class="active">
+						<a class="tab0" >Офшоры-Бенефициары</a>
+					</li>
+					<li class="">
+						<a class="tab1">Бенефициары-Активы</a>
+					</li>
+					<li class="">
+						<a class="tab2">Офшоры-Активы</a>
+					</li>
+				</ul>
+			</div>
+		</div>
+	</div>
+
+	<div class="container-fluid">
+		<div class="row">
+			<div class="col-xs-12">
+				<table class="table table-hover">
+					<thead>
+						<tr>
+							<th>
+								#
+							</th>
+							<th>
+								Офшор
+							</th>
+							<th>
+								Юрисдикция офшора
+							</th>
+							<th>
+								Материнский офшор
+							</th>
+							<th>
+								Бенефициар
+							</th>
+							<th>
+								Холдинговая компания бенефициара
+							</th>
+							<th>
+								Доля бенефициара в офшоре, %
+							</th>
+							<th>
+								Дата актуальности
+							</th>
+							<th>
+								Источник
+							</th>
+							<th>
+								Ссылка
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+					{% for off in inst_list %}
+						<tr>
+							<td>
+								{{ forloop.counter }}
+							</td>
+							<!-- /offshore/{{ off.offshore.slug }} -->
+							
+							<td>
+								<a href="{{ off.offshore.get_absolute_url }}">{{ off.offshore.off_name }}</a>
+							</td>
+							<td>
+								{{ off.offshore.off_jurisdiction }}
+							</td>
+							<td>
+								{{ off.offshore.off_parent }}
+							</td>
+							<td>
+								<a href="{{ off.beneficiary.get_absolute_url }}">{{ off.beneficiary.ben_name }} {{ off.beneficiary.ben_lastname }}</a>
+							</td>
+							<td>
+								{{ off.beneficiary.ben_holding }}
+							</td>
+							<td>
+								{{ off.share }}
+							</td>
+							<td>
+								{{ off.rel_date }}
+							</td>
+							<td>
+								{{ off.source }}
+							</td>
+							<td>
+								<a href="{{ off.link }}">{{ off.link }}</a>
+							</td>
+						</tr>
+					{% endfor %}
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+			<!-- 
+			{% for off in offshores_list %}
+								
+				{{ forloop.counter }}
+			
+				<a href="{{ off.get_absolute_url }}">{{ off.offshore.off_name }}</a>
+			
+				{{ off.beneficiary.ben_name }} {{ off.beneficiary.ben_lastname }}
+			
+				{{ off.share }}
+			
+				{{ off.rel_date }}
+			
+				{{ off.source }}<br/>
+			{% endfor %} -->
+
+			<div class="pagination">
+		    <span class="step-links">
+		        {% if inst_list.has_previous %}
+		            <a href="?page={{ inst_list.previous_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><img src={% static "img/previous.png" %}></a>
+		        {% endif %}
+
+		        <span class="current">
+		            Page {{ inst_list.number }} of {{ inst_list.paginator.num_pages }}
+		        </span>
+
+		        {% if inst_list.has_next %}
+		            <a href="?page={{ inst_list.next_page_number }}{% if request.GET.q %}&q={{ request.GET.q }}{% endif %}"><img src={% static "img/next.png" %}></a>
+		        {% endif %}
+		    </span>
+			</div>
+		
+
+		{% endblock %}

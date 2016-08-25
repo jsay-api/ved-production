@@ -1,0 +1,23 @@
+{% load staticfiles %}
+<!-- NB: THIS IS THE EXACT FILE THAT REALLY WORKS -->
+<div class="menu">
+	<img src={% static "img/menu.png" %} width="34px">
+	<ul class="dropdown-menu">
+		<li><a href="/vedadmin/">Админка | Главная</a></li>
+		<li><a href="/vedadmin/Offshores/">Офшоры | База</a></li>
+		<ul class="sub">
+			<li><a href="/vedadmin/Offshores/assetsbeneficiaries/">Бенефициары-Активы</a></li>
+			<li><a href="/vedadmin/Offshores/offshore/">Офшоры</a></li>
+			<li><a href="/vedadmin/Offshores/offshoresassets/">Офшоры-Активы</a></li>
+			<li><a href="/vedadmin/Offshores/beneficiariesoffshores/">Офшоры-Бенефициары</a></li>
+		</ul>
+		<!-- <li class="{{menu1}}"><a href="/">Справка | Главная</a></li> -->
+		<li><a href="/vedadmin/auth/">Пользователи и группы</a></li>
+		<ul class="sub">
+			<li><a href="/vedadmin/auth/user/">Пользователи</a></li>
+			<li><a href="/vedadmin/auth/group/">Группы</a></li>
+		</ul>
+		
+		<li><a href="/faq/">FAQ</a></li>
+	</ul>
+</div>

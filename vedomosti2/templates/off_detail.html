@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+	{% block title %}
+		<title>{{ instance.offshore.off_name }}</title>
+	{% endblock %}
+
+	{% block content %}
+		<section class="jumbotron">
+			<div class="detail">
+				
+				<p><strong>Офшор: </strong>{{ object.off_name }}</p>
+				<p><strong>Юрисдикция офшора: </strong>{{ object.off_jurisdiction }}</p>
+				<p><strong>Материнский офшор: </strong>{{ object.off_parent }}</p>
+				<p><strong>Ссылка: </strong><a href="{{ object.off_link }}" target = blank>{{ object.off_link }}</a></p>
+				{% if object.file %}<p><strong>Прикрепленные файлы: </strong><a href="{{ object.file.url }}">{{ object.file }}</a></p>{% endif %}
+				{% if object.image %}<p><strong>Прикрепленные изображения: </strong><img src="{{ object.image.url }}" class="img-responsive"></p> {% endif %}
+	
+			</div>
+			
+		</section>
+		
+	{% endblock %}
