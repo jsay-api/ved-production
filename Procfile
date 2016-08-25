@@ -1,0 +1,1 @@
+web: gunicorn vedomosti2.wsgi --log-file -
