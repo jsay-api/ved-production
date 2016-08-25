@@ -29,6 +29,8 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(_
 db_from_env = dj_database_url.config(conn_max_age=500)
 # DATABASES['default'].update(db_from_env)
 
+# Register database schemes in URLs.
+uses_netloc.append('mysql')
 
 try:
 
@@ -71,6 +73,3 @@ STATICFILES_DIRS = (
 # https://warehouse.python.org/project/whitenoise/
 
 STATICFILES_STORAGE = 'whitenoise.django.GzipManifestStaticFilesStorage'
-
-# Register database schemes in URLs.
-uses_netloc.append('mysql')

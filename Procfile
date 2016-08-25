@@ -1,1 +1,1 @@
-web: gunicorn vedomosti2.vedomosti2.wsgi --log-file -
+web: gunicorn vedomosti2.wsgi --log-file -
