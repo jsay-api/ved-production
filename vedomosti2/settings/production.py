@@ -61,7 +61,7 @@ try:
 except Exception:
     print ('Unexpected error:', sys.exc_info())
 
-STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
 STATIC_URL = '/static/'
 
 # Extra places for collectstatic to find static files.
