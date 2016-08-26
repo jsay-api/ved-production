@@ -1,4 +1,5 @@
 /* LOGIN FORM */
+{% load static %}
 
 body.login {
     background: #fff6f1;
