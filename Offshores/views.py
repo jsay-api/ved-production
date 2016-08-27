@@ -8,8 +8,11 @@ from django.template import loader
 from django.views.generic.base import View
 from .models import *
 from django.views.generic import DetailView
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.mixins import LoginRequiredMixin
 
 
+@login_required(redirect_field_name='')
 def home(request):
 	menu = 'disabled'
 	context = {
@@ -114,78 +117,9 @@ def AO(request):
 
 		return JsonResponse(data)
 
-# def AB(request):
-# 	menu = 'disabled'
-# 	tab1 = 'active'
-# 	queryset_list = AssetsBeneficiaries.objects.all().order_by("asset__asset_name")
-# 	query = request.GET.get("q")
-# 	if query:
-# 		queryset_list = queryset_list.filter(
-# 			Q(asset__asset_name__icontains=query) |
-# 			Q(beneficiary__ben_name__icontains=query) |
-# 			Q(beneficiary__ben_lastname__icontains=query) |
-# 			Q(beneficiary__ben_holding__icontains=query) |
-# 			Q(share__icontains=query) |
-# 			Q(source__icontains=query) 
-# 			).distinct()
-
-# 	paginator = Paginator(queryset_list, 5)
-# 	page = request.GET.get("page")
-# 	try:
-# 		queryset = paginator.page(page)
-# 	except PageNotAnInteger:
-# 		queryset = paginator.page(1)
-# 	except EmptyPage:
-# 		queryset = paginator.page(paginator.num_pages)
-# 	context = {
-# 		"inst_list" : queryset,
-# 		"menu0": menu,
-# 		"tab1": tab1
-# 	}
-
-# 	return render(request, 'AB.html', context)
-
-
-# def AO(request):
-# 	menu = 'disabled'
-# 	tab2 = 'active'
-# 	queryset_list = OffshoresAssets.objects.all().order_by("asset__asset_name")
-# 	query = request.GET.get("q")
-# 	if query:
-# 		queryset_list = queryset_list.filter(
-# 			Q(asset__asset_name__icontains=query) |
-# 			Q(offshore__off_name__icontains=query) |
-# 			Q(offshore__off_jurisdiction__icontains=query) |
-# 			Q(offshore__off_parent__icontains=query) |
-# 			Q(share__icontains=query) |
-# 			Q(source__icontains=query) 
-# 			).distinct()
-
-# 	paginator = Paginator(queryset_list, 5)
-# 	page = request.GET.get("page")
-# 	try:
-# 		queryset = paginator.page(page)
-# 	except PageNotAnInteger:
-# 		queryset = paginator.page(1)
-# 	except EmptyPage:
-# 		queryset = paginator.page(paginator.num_pages)
-# 	context = {
-# 		"inst_list" : queryset,
-# 		"menu0": menu,
-# 		"tab2": tab2
-# 	}
-
-# 	return render(request, 'AO.html', context)
-
-def detail(request, slug=None):
-	instance = get_object_or_404(Offshore, slug = slug)
-	context = {
-		"instance": instance
-	}
-	print(instance)
-	return render(request, 'off_detail.html', context, context_instance=RequestContext(request))
-
-class InstanceView(DetailView):
+class InstanceView(LoginRequiredMixin, DetailView):
+	login_url = '/login/'
+	redirect_field_name = ''
 	model = None
 	template_name = None
 
@@ -198,6 +132,7 @@ def logout(request):
 	auth.logout(request)
 	return HttpResponseRedirect('/login')
 
+@login_required(redirect_field_name='')
 def faq(request):
 	menu = 'disabled'
 	return render(request, 'faq.html', {"menu1": menu})
