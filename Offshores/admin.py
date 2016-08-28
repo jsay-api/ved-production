@@ -30,8 +30,7 @@ class AssetModelAdmin(admin.ModelAdmin):
 	search_fields = ["asset_name"]
 	fields = ["asset_name", "asset_link"]
 	list_per_page = 10
-	# inlines = [ABInline, OAInline]
-	# prepopulated_fields = {"slug": ("asset_name",)}
+
 	class Meta:
 		model = Asset
 
@@ -48,8 +47,7 @@ class BeneficiaryModelAdmin(admin.ModelAdmin):
 	fields = ["ben_name", "ben_lastname", "ben_midname", "ben_holding", "ben_link"]
 	list_display = ["ben_name", "ben_lastname", "ben_midname", "ben_holding", "ben_link"]
 	list_per_page = 10
-	# inlines = [ABInline]
-	# prepopulated_fields = {"slug": ("ben_name", "ben_lastname")}
+	
 	class Meta:
 		model = Beneficiary
 
@@ -64,14 +62,13 @@ class OffshoreModelAdmin(admin.ModelAdmin):
 	fields = ["off_name", "off_jurisdiction", "off_parent", "file", "image", "image_thumb", "off_link"]
 	readonly_fields = ['image_thumb']
 	list_per_page = 10
-	# prepopulated_fields = {"slug": ("off_name",)}
-	# inlines = [BOInline, OAInline]
+	
 	class Meta:
 		model = Offshore
 
 
 class ABModelAdmin(admin.ModelAdmin):
-	list_display = ["ben_name", "beneficiary", "ben_midname", "ben_holding", "asset", "share", "rel_date", "source", "link"]
+	list_display = ["beneficiary", "ben_midname", "ben_holding", "asset", "share", "rel_date", "source", "link"]
 	search_fields = ["asset__asset_name", "beneficiary__ben_lastname", "beneficiary__ben_name", "beneficiary__ben_midname", "beneficiary__ben_holding", "share",  "source"]
 	list_filter = ["asset", "beneficiary", "source"]
 	list_editable = ["share", "source"]
