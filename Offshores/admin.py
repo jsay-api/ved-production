@@ -94,7 +94,7 @@ class ABModelAdmin(admin.ModelAdmin):
 	
 
 class BOModelAdmin(admin.ModelAdmin):
-	list_display = ["offshore", "off_jur", "off_prnt", "ben_name", "beneficiary", "ben_midname", "ben_holding", "share", "rel_date",  "source", "link"]
+	list_display = ["offshore", "off_jur", "off_prnt", "beneficiary", "ben_midname", "ben_holding", "share", "rel_date",  "source", "link"]
 	list_filter = ["beneficiary", "offshore", "source"]
 	list_display_links = ["offshore", "beneficiary", "link"]
 	search_fields = ["beneficiary__ben_lastname", "beneficiary__ben_name", "beneficiary__ben_holding", "offshore__off_name", "offshore__off_jurisdiction", "offshore__off_parent", "source", "share", ]
