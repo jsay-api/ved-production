@@ -234,7 +234,7 @@ a, a:hover, a:active {
 
 
 /*Nav-tabs in index*/
-.nav-tabs {
+.nav-tabs, .tab0, .tab1, .tab2 {
   cursor: pointer;
 }
 
