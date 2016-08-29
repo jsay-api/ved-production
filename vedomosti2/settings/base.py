@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/1.9/ref/settings/
 
 import os
 from django.conf.global_settings import TEMPLATE_CONTEXT_PROCESSORS as TCP
+import boto
 
 
 
@@ -45,6 +46,8 @@ INSTALLED_APPS = [
     'Users',
     'slugify',
 ]
+
+INSTALLED_APPS += ('storages',)
 
 MIDDLEWARE_CLASSES = [
     'django.middleware.security.SecurityMiddleware',
