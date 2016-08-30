@@ -93,8 +93,8 @@ SEND_BROKEN_LINK_EMAILS=True
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_PORT = 587
-EMAIL_HOST_USER = 'pr.juliya'
-EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST_USER = 'vederrors'
+EMAIL_HOST_PASSWORD = '0013Ved1'
 EMAIL_USE_TLS = True
 SERVER_EMAIL = 'django@my-domain.com'
 EMAIL_HOST = 'smtp.gmail.com'
