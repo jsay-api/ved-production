@@ -87,3 +87,4 @@ AWS_SECRET_ACCESS_KEY = "qYeNCDj/R3UraKGWXemc2AptV7fwhQo4DB1dFsZm"
 AWS_QUERYSTRING_AUTH = False
 
 
+ADMINS = (('Julia', 'pr.juliya@gmail.com'),)
