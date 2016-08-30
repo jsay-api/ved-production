@@ -77,5 +77,12 @@ STATICFILES_DIRS = (
 LOGIN_URL = '/login/'
 LOGOUT_REDIRECT_URL = '/login/'
 
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+AWS_STORAGE_BUCKET_NAME = "vedomosti"
+MEDIA_URL = "https://%s.s3.amazonaws.com/" % os.environ['AWS_STORAGE_BUCKET_NAME']
+MEDIA_ROOT = ''
+AWS_ACCESS_KEY_ID = "AKIAJHFEGY6K4QJPYQVQ"
+AWS_SECRET_ACCESS_KEY = "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"
+AWS_QUERYSTRING_AUTH = False
 
 
