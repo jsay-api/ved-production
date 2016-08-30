@@ -44,7 +44,6 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'Offshores',
     'Users',
-    'slugify',
 ]
 
 INSTALLED_APPS += ('storages',)

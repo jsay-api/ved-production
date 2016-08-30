@@ -13,6 +13,5 @@ gunicorn==19.6.0
 mysqlclient==1.3.7
 nose==1.3.7
 pytils==0.3
--e git+https://github.com/simplylizz/django-slugify.git#egg=django-slugify==1.0.1
 static3==0.7.0
 whitenoise==3.2.1
