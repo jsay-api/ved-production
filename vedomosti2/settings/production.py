@@ -79,7 +79,7 @@ LOGOUT_REDIRECT_URL = '/login/'
 
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
 AWS_STORAGE_BUCKET_NAME = "vedomosti"
-MEDIA_URL = "https://%s.s3.amazonaws.com/vedomosti" 
+MEDIA_URL = "https://%s.s3.amazonaws.com/vedomosti/" 
 #% os.environ['AWS_STORAGE_BUCKET_NAME']
 MEDIA_ROOT = ''
 AWS_ACCESS_KEY_ID = "AKIAJHFEGY6K4QJPYQVQ"
