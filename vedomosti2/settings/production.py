@@ -90,11 +90,12 @@ AWS_QUERYSTRING_AUTH = False
 ADMINS = (('Julia', 'pr.juliya@gmail.com'),)
 MANAGERS = ADMINSEMAIL_HOST = 'host'
 SEND_BROKEN_LINK_EMAILS=True
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 
 EMAIL_PORT = 587
 EMAIL_HOST_USER = 'pr.juliya'
 EMAIL_HOST_PASSWORD = 'qflfqdth'
 EMAIL_USE_TLS = True
-SERVER_EMAIL='blah@blah.com'
+# SERVER_EMAIL='blah@blah.com'
 EMAIL_HOST = 'smtp.gmail.com'
 SERVER_EMAIL = EMAIL_HOST_USER
